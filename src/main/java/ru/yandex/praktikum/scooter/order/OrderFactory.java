@@ -1,11 +1,13 @@
 package ru.yandex.praktikum.scooter.order;
 
+import io.qameta.allure.Step;
 import net.datafaker.Faker;
 
 public class OrderFactory
 {
     static Faker faker = new Faker();
 
+    @Step("Create order")
     public static Order getDefault()
     {
         String firstName = faker.name().toString();
@@ -20,7 +22,7 @@ public class OrderFactory
         return new Order(firstName, lastName, address, metroStation, phone, rentTime, deliveryDate, comment, color);
     }
 
-
+    @Step("Create order without color")
     public static Order getWithoutColor(String[] color)
     {
         String firstName = faker.name().toString();
