@@ -1,0 +1,11 @@
+ru\yandex\praktikum\scooter\order\OrderClient.class
+ru\yandex\praktikum\scooter\order\OrderFactory.class
+ru\yandex\praktikum\scooter\config\Config.class
+ru\yandex\praktikum\scooter\courier\Courier.class
+ru\yandex\praktikum\scooter\courier\CourierCredsWithoutLogin.class
+ru\yandex\praktikum\scooter\order\Order.class
+ru\yandex\praktikum\scooter\courier\CourierCredsWithoutPassword.class
+ru\yandex\praktikum\scooter\courier\CourierWrongCreds.class
+ru\yandex\praktikum\scooter\courier\CourierCredentials.class
+ru\yandex\praktikum\scooter\courier\Client.class
+ru\yandex\praktikum\scooter\courier\CourierClient.class
