@@ -1,5 +1,7 @@
 package ru.yandex.praktikum.scooter.courier;
 
+import io.qameta.allure.Description;
+import io.qameta.allure.junit4.DisplayName;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -26,6 +28,8 @@ public class AddCourierTest
     }
 
     @Test
+    @DisplayName("Create courier login")
+    @Description("Проверка, что со всеми параметрами курьер создаётся")
     public void createValidCourierTest()
     {
         boolean isOk = courierClient.createCourier(courier).extract().path("ok");
@@ -35,8 +39,9 @@ public class AddCourierTest
         assertNotEquals(0, courierId);
     }
 
-//**********************************************************************************************************************
     @Test
+    @DisplayName("Check error when create courier without login")
+    @Description("Проверка, что при попытке создания курьера без указания логина, курьер не создается и появляется сообщение об ошибке")
     public void createWithoutLoginTest()
     {
         courier = Courier.getWithoutLogin();
@@ -45,15 +50,18 @@ public class AddCourierTest
     }
 
     @Test
+    @DisplayName("Check error when create courier without password")
+    @Description("Проверка, что при попытке создания курьера без указания пароля, курьер не создается и появляется сообщение об ошибке")
     public void createWithoutPasswordTest()
     {
         courier = Courier.getWithoutPassword();
         String message = courierClient.createCourier(courier).extract().path("message");
         assertEquals("Недостаточно данных для создания учетной записи", message);
     }
-//**********************************************************************************************************************
 
     @Test
+    @DisplayName("Check error when create courier copy")
+    @Description("Проверка, что при создании дубля курьера, курьер не создается, статус 409 и нужное сообщение об ошибке")
     public void createSameCourierTest()
     {
         CourierCredentials creds = CourierCredentials.from(courier);
